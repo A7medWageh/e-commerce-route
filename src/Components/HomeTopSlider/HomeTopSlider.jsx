@@ -13,7 +13,6 @@ export default function HomeTopSlider() {
     slidesToShow: 1,
     slidesToScroll: 2,
     autoplay: true,
-    autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     responsive: [

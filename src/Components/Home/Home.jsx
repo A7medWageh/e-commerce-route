@@ -28,12 +28,12 @@ export default function Home() {
           <div className="w-full lg:w-1/3  md:w-1/3   space-y-4 flex flex-col items-center mx-auto ">
             <img
               src={Image1}
-              className=" object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200"
               alt="Promotional image 1"
             />
             <img
               src={Image2}
-              className=" object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200"
               alt="Promotional image 2"
             />
           </div>

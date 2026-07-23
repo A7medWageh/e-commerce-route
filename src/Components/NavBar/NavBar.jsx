@@ -3,19 +3,19 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon, HomeIcon, CubeIcon, TagIcon, BuildingStorefrontIcon, ShoppingCartIcon, HeartIcon } from "@heroicons/react/24/outline";
 import { useContext, useEffect } from "react";
 import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../../Context/AuthContext";
 
 const navigation = [
-  { name: "Home", to: "/", current: true },
-  { name: "Products", to: "/ProductsPage", current: false },
-  { name: "Categories", to: "/Categories", current: false },
-  { name: "Brands", to: "/Brands", current: false },
-  { name: "MyCart", to: "/Carts", current: false },
-  { name: "WishList", to: "/WishList", current: false },
+  { name: "Home", to: "/", current: true, icon: HomeIcon },
+  { name: "Products", to: "/ProductsPage", current: false, icon: CubeIcon },
+  { name: "Categories", to: "/Categories", current: false, icon: TagIcon },
+  { name: "Brands", to: "/Brands", current: false, icon: BuildingStorefrontIcon },
+  { name: "MyCart", to: "/Carts", current: false, icon: ShoppingCartIcon },
+  { name: "WishList", to: "/WishList", current: false, icon: HeartIcon },
 ];
 
 function classNames(...classes) {
@@ -36,7 +36,7 @@ export default function Example() {
       <div className="mx-auto max-w-7xl px-2 md:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex-shrink-0">
-            <h1 className="text-3xl  text-white">FreshCart</h1>
+            <h1 className="text-3xl text-primary font-bold">FreshCart</h1>
           </div>
 
           <div className="flex justify-end flex-1 md:hidden">
@@ -63,18 +63,18 @@ export default function Example() {
                     to={item.to}
                     aria-current={item.current ? "page" : undefined}
                     className={classNames(
-                      "bg-gray-900 text-white",
-                      "text-gray-300 hover:bg-gray-700 hover:text-white",
-                      "rounded-md px-3 py-2 text-sm font-medium"
+                      item.current ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                      "rounded-md px-3 py-2 text-sm font-medium flex items-center space-x-1"
                     )}
                   >
-                    {item.name}
+                    <item.icon className="h-5 w-5" aria-hidden="true" />
+                    <span>{item.name}</span>
                   </NavLink>
                 ))}
               {UserToken && (
                 <button
                   onClick={signOut}
-                  className="bg-red-700 text-white rounded-md px-3 py-2 text-sm font-medium"
+                  className="bg-red-600 text-white rounded-md px-3 py-2 text-sm font-medium"
                 >
                   Sign Out
                 </button>
@@ -85,7 +85,7 @@ export default function Example() {
                     <li>
                       <NavLink
                         to={"/login"}
-                        className="   px-3 py-2 text-white bg-blue-600 rounded-lg"
+                        className="px-3 py-2 text-white bg-primary rounded-lg"
                       >
                         Login
                       </NavLink>
@@ -93,7 +93,7 @@ export default function Example() {
                     <li>
                       <NavLink
                         to={"/register"}
-                        className=" px-3 py-2 text-white bg-blue-600 rounded-lg"
+                        className="px-3 py-2 text-white bg-primary rounded-lg"
                       >
                         register
                       </NavLink>
@@ -117,12 +117,13 @@ export default function Example() {
                 aria-current={item.current ? "page" : undefined}
                 className={classNames(
                   item.current
-                    ? "bg-gray-900 text-white"
+                    ? "bg-primary text-white"
                     : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                  "block rounded-md px-3 py-2 text-base font-medium"
+                  "block rounded-md px-3 py-2 text-base font-medium flex items-center space-x-2"
                 )}
               >
-                {item.name}
+                <item.icon className="h-6 w-6" aria-hidden="true" />
+                <span>{item.name}</span>
               </Link>
             ))}
           {UserToken && (

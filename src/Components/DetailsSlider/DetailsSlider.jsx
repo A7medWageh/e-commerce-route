@@ -9,7 +9,6 @@ export default function DetailsSlider({ images }) {
     slidesToShow: 4,
     slidesToScroll: 2,
     autoplay: true,
-    autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
     responsive: [
